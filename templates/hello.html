@@ -7,7 +7,10 @@
 <body>
     <div class="container">
         <h1>Hello, this is <i>{{ ens_name }} ✋</i></h1>
+        <img id="avatar" src="{{ avatar }}" alt="avatar">
+
         <img src="{{ url_for('qr_code', ens_name=ens_name) }}" alt="QR Code">
+
     </div>
 </body>
 </html>
