@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENS Magic Link</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ENS Magic Link</h1>
+        <form id="ensForm" method="post">
+            <input type="text" id="ensName" name="ens_name" placeholder="Enter ENS name">
+            <div id="errorMessage" style="color: red; display: none;">Please enter a valid ENS name that ends with .eth</div>
+            <button type="submit">Make people call your name!</button>
+        </form>
+
+        <div id="qrCode"></div>
+    </div>
+</body>
+<script>
+   document.getElementById('ensForm').addEventListener('submit', function(e) {
+    var ensName = document.getElementById('ensName').value;
+    var errorMessage = document.getElementById('errorMessage');
+
+    if (!ensName.endsWith('.eth')) {
+        e.preventDefault();
+        errorMessage.style.display = 'block';
+    } else {
+        errorMessage.style.display = 'none';
+
+    }
+});
+
+
+</script>
+</html>
